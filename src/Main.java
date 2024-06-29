@@ -13,6 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        System.out.println("List of commands:\ncreate name_of_file path_for_new_file\ndelete name_of_file path_of_file\nrename old_name_of_file new_name_for_file path_of_file\ncopy old_path_of_file new_path_of_file name_of_file");
         String commands = in.nextLine(), command = "";
         String[] words = commands.split(" ");
         CreateFile createFile = new CreateFile();
@@ -26,6 +27,7 @@ public class Main {
                 case "delete" -> deleteFile.action(words);
                 case "rename" -> renameFile.action(words);
                 case "copy" -> copyFile.action(words);
+                default -> throw new NotCorrectlyTypedCommand();
             }
 
             commands = in.nextLine();
