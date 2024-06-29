@@ -29,10 +29,10 @@ public class Main {
                     case "delete" -> deleteFile.action(words);
                     case "rename" -> renameFile.action(words);
                     case "copy" -> copyFile.action(words);
-                    default -> throw new NotCorrectlyTypedCommand();
+                    default -> throw new RuntimeException("Check the correctness of your command");
                 }
-            }catch (NotCorrectlyTypedCommand e) {
-                System.out.print("");
+            }catch (RuntimeException e) {
+                System.out.println(e.getMessage());
             }
             commands = in.nextLine();
             words = commands.split(" ");
