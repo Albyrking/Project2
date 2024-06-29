@@ -21,15 +21,19 @@ public class Main {
         RenameFile renameFile = new RenameFile();
         CopyFile copyFile = new CopyFile();
         command = words[0];
-        while (!command.equals("Stop")) {
-            switch (command) {
-                case "create" -> createFile.action(words);
-                case "delete" -> deleteFile.action(words);
-                case "rename" -> renameFile.action(words);
-                case "copy" -> copyFile.action(words);
-                default -> throw new NotCorrectlyTypedCommand();
-            }
 
+        while (!command.equals("Stop")) {
+            try {
+                switch (command) {
+                    case "create" -> createFile.action(words);
+                    case "delete" -> deleteFile.action(words);
+                    case "rename" -> renameFile.action(words);
+                    case "copy" -> copyFile.action(words);
+                    default -> throw new NotCorrectlyTypedCommand();
+                }
+            }catch (NotCorrectlyTypedCommand e) {
+                System.out.print("");
+            }
             commands = in.nextLine();
             words = commands.split(" ");
             command = words[0];
