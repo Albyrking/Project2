@@ -1,3 +1,3 @@
-public interface File_O {
+public interface FileOperation {
     void action(String[] words);
 }

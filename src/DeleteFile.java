@@ -1,6 +1,6 @@
 import java.io.File;
 
-public class DeleteFile implements File_O{
+public class DeleteFile implements FileOperation {
     @Override
     public void action(String[] words) {
         String path = "", fileName = "";
@@ -17,7 +17,7 @@ public class DeleteFile implements File_O{
         if (file.delete()) {
             System.out.println("File \"" + fileName + "\" was successfully deleted");
         } else {
-            throw new SuchFileIsNotFound();
+            throw new NoSuchFileFound();
         }
     }
 }

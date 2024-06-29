@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 
-public class CreateFile implements File_O{
+public class CreateFile implements FileOperation {
     @Override
     public void action(String[] words) {
         String path = words[2], fileName =words[1];
@@ -29,7 +29,7 @@ public class CreateFile implements File_O{
 
         } catch (IOException e) {
 
-            throw new RuntimeException("enter command one more time.");
+            throw new RuntimeException("Enter command one more time");
         }
     }
     public String createPath(String path, int g, String fileName) {
