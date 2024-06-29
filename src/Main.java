@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static java.nio.file.Files.*;
+
 
 public class Main {
 
@@ -13,14 +15,17 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String commands = in.nextLine(), command = "";
         String[] words = commands.split(" ");
-        File_Operations file_operations = new File_Operations();
+        CreateFile createFile = new CreateFile();
+        DeleteFile deleteFile = new DeleteFile();
+        RenameFile renameFile = new RenameFile();
+        CopyFile copyFile = new CopyFile();
         command = words[0];
         while (!command.equals("Stop")) {
             switch (command) {
-                case "create" -> file_operations.createFile(words);
-                case "delete" -> file_operations.deleteFile(words);
-                case "rename" -> file_operations.renameFile(words);
-                case "copy" -> file_operations.moveFile(words);
+                case "create" -> createFile.action(words);
+                case "delete" -> deleteFile.action(words);
+                case "rename" -> renameFile.action(words);
+                case "copy" -> copyFile.action(words);
             }
 
             commands = in.nextLine();
