@@ -1,17 +1,9 @@
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
-import static java.nio.file.Files.*;
 
+public class FileSystem {
 
-public class Main {
-
-    public static void main(String[] args) {
+    public void go() {
         Scanner in = new Scanner(System.in);
         System.out.println("List of commands:\ncreate name_of_file path_for_new_file\ndelete name_of_file path_of_file\nrename path_of_file old_name_of_file new_name_for_file\ncopy name_of_file old_path_of_file new_path_of_file");
         String commands = in.nextLine(), command = "";
